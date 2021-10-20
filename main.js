@@ -49,6 +49,8 @@ const checkWeather = (cityName = 'Warsaw') => {
 		.catch(() => (error.textContent = 'enter a valid city name'));
 };
 
+checkWeather();
+
 btn.addEventListener('click', () => {
 	checkWeather((cityName = input.value));
 });
