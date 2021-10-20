@@ -3,18 +3,14 @@ const city = document.querySelector('.search-section__city-name');
 const input = document.querySelector('.search-section__input');
 const btn = document.querySelector('.search-section__btn');
 const error = document.querySelector('.search-section__error');
-const weeather = document.querySelector('.information-section__weather');
-const temp = document.querySelector('.information-section__temp');
-const press = document.querySelector('.information-section__press');
-const speed = document.querySelector('.information-section__speed');
-const chill = document.querySelector('.information-section__chill');
-const hum = document.querySelector('.information-section__hum');
+const weatherElement = document.querySelector('.information-section__weather');
+const tempElement = document.querySelector('.information-section__temp');
+const pressElement = document.querySelector('.information-section__press');
+const speedElement = document.querySelector('.information-section__speed');
+const chillElement = document.querySelector('.information-section__chill');
+const humElement = document.querySelector('.information-section__hum');
 
-const p = document.querySelector('p');
-
-const checkWeather = () => {
-	const cityName = input.value || 'Warsaw';
-
+const checkWeather = (cityName = 'Warsaw') => {
 	const API_LINK = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=00601dc5a4416ca208a6fa08ada0da1a&units=metric`;
 
 	axios
@@ -23,23 +19,18 @@ const checkWeather = () => {
 			console.log(res);
 
 			const { name, main, wind, weather } = res.data;
+			const { humidity, pressure, temp } = main;
+			const { speed, gust } = wind;
 
-			const nameP = name;
-			const weatherP = weather[0].main;
 			const weatherIcon = weather[0].icon;
-			const tempP = main.temp;
-			const pressP = main.pressure;
-			const speedP = wind.speed;
-			const chillP = wind.gust;
-			const humP = main.humidity;
 
-			city.textContent = nameP;
-			weeather.textContent = weatherP;
-			temp.textContent = Math.floor(tempP) + '°C';
-			press.textContent = pressP + ' hPa';
-			speed.textContent = speedP + ' m/s';
-			chill.textContent = chillP + ' m/s';
-			hum.textContent = humP + '%';
+			city.textContent = name;
+			weatherElement.textContent = weather[0].main;
+			tempElement.textContent = Math.floor(temp) + '°C';
+			pressElement.textContent = pressure + ' hPa';
+			speedElement.textContent = speed + ' m/s';
+			chillElement.textContent = gust + ' m/s';
+			humElement.textContent = humidity + '%';
 
 			input.value = '';
 			error.textContent = '';
@@ -51,17 +42,15 @@ const checkWeather = () => {
 				);
 			}
 
-			if (!chillP) {
-				chill.textContent = `no data`;
+			if (!gust) {
+				chillElement.textContent = `no data`;
 			}
 		})
 		.catch(() => (error.textContent = 'enter a valid city name'));
 };
 
-checkWeather();
-
 btn.addEventListener('click', () => {
-	checkWeather();
+	checkWeather((cityName = input.value));
 });
 
 input.addEventListener('keyup', (e) => {
