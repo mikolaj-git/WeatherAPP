@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Weather API</title>
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" href="./scss/css/main.css" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<header class="header-section">
+				<h1 class="header-section__logo">WeatherAPP</h1>
+
+				<img
+					src="./scss/img/unknown.png"
+					alt="image showing weather"
+					class="header-section__img"
+				/>
+			</header>
+
+			<main>
+				<div class="search-section">
+					<p class="search-section__city-name"></p>
+					<input
+						type="text"
+						placeholder="city name"
+						class="search-section__input"
+					/>
+					<p class="search-section__error"></p>
+					<button class="search-section__btn">Send</button>
+				</div>
+
+				<div class="information-section">
+					<div class="information-section__heading">
+						<p>Weather:</p>
+						<p>Temperature:</p>
+						<p>Pressure:</p>
+					</div>
+					<div class="information-section__info">
+						<p class="information-section__weather"></p>
+						<p class="information-section__temp"></p>
+						<p class="information-section__press"></p>
+					</div>
+					<div class="information-section__heading">
+						<p>Wind speed:</p>
+						<p>Wind chill:</p>
+						<p>Humidity:</p>
+					</div>
+					<div class="information-section__info">
+						<p class="information-section__speed"></p>
+						<p class="information-section__chill"></p>
+						<p class="information-section__hum"></p>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="./main.js"></script>
+	</body>
+</html>

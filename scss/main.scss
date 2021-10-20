@@ -1,0 +1,151 @@
+*,
+::before,
+::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.6rem;
+	background: rgb(0, 159, 255);
+	background: linear-gradient(
+		172deg,
+		rgba(0, 159, 255, 1) 0%,
+		rgba(0, 255, 89, 1) 100%
+	);
+	color: whitesmoke;
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 800px;
+	padding: 1em;
+	border-radius: 20px;
+	background-color: rgba(54, 48, 48, 0.603);
+}
+
+.header-section {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 1em;
+	height: 25%;
+
+	&__logo {
+		font-size: 5rem;
+		color: rgba(0, 159, 255, 1);
+	}
+
+	&__img {
+		width: 150px;
+	}
+}
+
+.search-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 25%;
+	margin: 1.5em 0;
+
+	&__city-name {
+		font-size: 3rem;
+		font-weight: 700;
+	}
+
+	&__input {
+		text-align: center;
+		padding: 0.5em;
+		border: none;
+		background-color: rgba(185, 185, 185, 0.144);
+		margin: 1em;
+		letter-spacing: 1px;
+		font-size: 1.2rem;
+		color: whitesmoke;
+
+		&:focus {
+			outline: none;
+		}
+
+		&::placeholder {
+			color: rgba(255, 255, 255, 0.521);
+		}
+	}
+
+	&__error {
+		font-size: 1.2rem;
+		margin-bottom: 1em;
+		color: lightgoldenrodyellow;
+	}
+
+	&__btn {
+		padding: 0.5em;
+		width: 100px;
+		border-radius: 15px;
+		font-weight: 700;
+		background: rgba(39, 219, 243, 0.13);
+		color: whitesmoke;
+		cursor: pointer;
+	}
+}
+
+.information-section {
+	height: 50%;
+	width: 90%;
+	padding: 2em 0;
+	margin: 0 auto;
+
+	&__heading,
+	&__info {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		padding: 1em;
+
+		p {
+			width: 33.3%;
+		}
+	}
+
+	&__heading {
+		position: relative;
+		font-size: 2rem;
+		border-bottom: 1px solid #fff;
+		border-top: 1px solid #fff;
+		font-weight: 700;
+	}
+}
+
+@media (max-width: 576px) {
+	.header-section {
+		&__logo {
+			font-size: 2.5rem;
+			padding: 0 1em;
+		}
+
+		&__img {
+			width: 120px;
+		}
+	}
+
+	p {
+		font-size: 1.2rem;
+	}
+}
+
+@media (orientation: landscape) and (max-width: 992px) {
+	body {
+		height: 200vh;
+	}
+}
