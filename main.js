@@ -35,12 +35,7 @@ const checkWeather = (cityName = 'Warsaw') => {
 			input.value = '';
 			error.textContent = '';
 
-			if (weatherIcon) {
-				img.setAttribute(
-					'src',
-					`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
-				);
-			} 
+			
 
 			if (!gust) {
 				chillElement.textContent = `no data`;
