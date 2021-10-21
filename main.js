@@ -40,7 +40,7 @@ const checkWeather = (cityName = 'Warsaw') => {
 					'src',
 					`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
 				);
-			}
+			} 
 
 			if (!gust) {
 				chillElement.textContent = `no data`;
